@@ -1,5 +1,5 @@
 resource "null_resource" "ls" {
   provisioner "local-exec" {
-    command = "ls -la"
+    command = "ls -l"
   }
 }
