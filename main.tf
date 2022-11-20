@@ -6,6 +6,6 @@ resource "null_resource" "ls1" {
 
 resource "null_resource" "ls2" {
   provisioner "local-exec" {
-    command = "ls -la"
+    command = "ls -l"
   }
 }
