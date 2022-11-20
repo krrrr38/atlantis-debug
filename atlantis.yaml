@@ -1,0 +1,6 @@
+version: 3
+projects:
+- name: project
+  branch: /maaster/
+  dir: .
+  disable_repo_locking: true
