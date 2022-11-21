@@ -3,4 +3,4 @@ projects:
 - name: project
   branch: /master/
   dir: .
-  repo_locking: false
+  repo_locking: true
