@@ -9,3 +9,18 @@ resource "null_resource" "ls2" {
     command = "ls -l"
   }
 }
+
+resource "random_id" "dummy" {
+  keepers     = {}
+  byte_length = 1
+}
+
+resource "random_id" "dummy2" {
+  keepers     = {}
+  byte_length = 1
+}
+
+resource "random_id" "dummy3" {
+  keepers     = {}
+  byte_length = 1
+}
