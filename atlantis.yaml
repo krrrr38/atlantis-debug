@@ -3,3 +3,17 @@ projects:
 - name: project
   branch: /master/
   dir: .
+  workflow: terragrunt
+workflows:
+  terragrunt:
+    plan:
+      steps:
+      - run: terragrunt plan -input=false -out=$PLANFILE
+      - run: terragrunt show -json $PLANFILE > $SHOWFILE
+    apply:
+      steps:
+      - run: terragrunt apply -input=false $PLANFILE
+    import:
+      steps:
+      - run: echo $COMMENT_ARGS > comment_args_$(date +%s).txt
+      - run: terragrunt import $COMMENT_ARGS
