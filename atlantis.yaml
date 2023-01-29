@@ -4,6 +4,8 @@ projects:
   branch: /master/
   dir: .
   workflow: terragrunt
+  autoplan:
+    enabled: false
 workflows:
   terragrunt:
     plan:
@@ -15,5 +17,7 @@ workflows:
       - run: terragrunt apply -input=false $PLANFILE
     import:
       steps:
-      - run: echo $COMMENT_ARGS > comment_args_$(date +%s).txt
-      - run: terragrunt import $COMMENT_ARGS
+      - env:
+          name: IMPORT_ARGS
+          command: printf '%s' $COMMENT_ARGS | sed 's/,/ /' | tr -d '\'
+      - run: terragrunt import $IMPORT_ARGS
