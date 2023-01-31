@@ -5,6 +5,11 @@ resource "null_resource" "ls1" {
 }
 
 resource "random_id" "dummy1" {
+  for_each    = toset([var.var])
   keepers     = {}
   byte_length = 1
+}
+
+variable "var" {
+  default = "default"
 }

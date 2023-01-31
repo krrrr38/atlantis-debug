@@ -3,3 +3,16 @@ projects:
 - name: project
   branch: /master/
   dir: .
+  workflow: production
+workflows:
+  production:
+    plan:
+      steps:
+      - init
+      - plan:
+          extra_args: ["-var-file", "production.tfvars"]
+    import:
+      steps:
+      - init
+      - import:
+          extra_args: ["-var-file", "production.tfvars"]
