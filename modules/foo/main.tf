@@ -1,3 +1,4 @@
+
 variable "foo_var" {
   type = string
 }
