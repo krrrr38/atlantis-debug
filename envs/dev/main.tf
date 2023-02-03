@@ -10,6 +10,6 @@ resource "random_id" "dummy1" {
 }
 
 module "foo" {
-  source  = "./modules/foo"
-  foo_var = "foo"
+  source  = "../../modules/foo"
+  foo_var = "foo-dev"
 }
