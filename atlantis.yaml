@@ -1,8 +1,8 @@
 version: 3
-projects:
-- name: dev
-  branch: /master/
-  dir: envs/dev
-- name: stg
-  branch: /master/
-  dir: envs/stg
+projects: []
+# - name: dev
+#   branch: /master/
+#   dir: envs/dev
+# - name: stg
+#   branch: /master/
+#   dir: envs/stg
