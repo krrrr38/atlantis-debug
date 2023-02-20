@@ -1,14 +1,11 @@
-### https://raw.github.com/github/gitignore/22a5eb3da72c0a224a179033e92722bdbf5a05ad/Terraform.gitignore
-
-#  Local .terraform directories
-**/.terraform/*
-
-# .tfstate files
-*.tfstate
-*.tfstate.*
-
-# .tfvars files
-*.tfvars
-
-
-.terraform.lock.hcl
+*.d.ts
+*.js
+node_modules
+cdktf.out
+cdktf.log
+*terraform.*.tfstate*
+.gen
+.terraform
+tsconfig.tsbuildinfo
+!jest.config.js
+!setup.js

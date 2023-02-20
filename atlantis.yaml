@@ -1,8 +1,17 @@
 version: 3
 projects:
-- name: dev
+- name: cdktf
   branch: /master/
-  dir: envs/dev
-- name: stg
-  branch: /master/
-  dir: envs/stg
+  dir: .
+  workflow: cdktf
+workflows:
+  cdktf:
+    plan:
+      steps:
+      - run: npm i
+      - run: CI=true npx cdktf get --disable-plugin-cache-env
+      - run: CI=true npx cdktf diff --disable-plugin-cache-env
+      - run: touch $PLANFILE # notify plan is succeeded to Atlantis
+    apply:
+      steps:
+      - run: CI=true npx cdktf deploy --auto-approve --disable-plugin-cache-env
